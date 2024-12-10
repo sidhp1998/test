@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const dist_button = document.getElementById("btn-distance");
     dist_button.addEventListener("click", convert_distance);
+
+    const fuel_con = document.getElementById("btn-fuel-consumption");
+    fuel_con.addEventListener("click", convert_fuel_con);
 });
 
 
@@ -54,5 +57,21 @@ function convert_distance()
     if(distance_m_selector.checked==true)
     {   
         km.value = (Number(m.value)*1.609).toString();
+    }
+}
+
+function convert_fuel_con()
+{
+    var fuel_consumption_kmpl_selector = document.getElementById("fuel-consumption-kmpl-selector");
+    var fuel_consumption_mpg_selector = document.getElementById("fuel-consumption-mpg-selector");
+    var kmpl = document.getElementById("fuel-consumption-kmpl");
+    var mpg = document.getElementById("fuel-consumption-mpg");
+    if(fuel_consumption_kmpl_selector.checked==true)
+    {
+        mpg.value = (Number(kmpl.value)*2.352).toString();
+    }
+    if(fuel_consumption_mpg_selector.checked==true)
+    {   
+        kmpl.value = (Number(mpg.value)/2.352).toString();
     }
 }
